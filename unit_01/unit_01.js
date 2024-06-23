@@ -77,8 +77,8 @@ console.log(out17);
 
 // Task 18.
 // Получите div.out-18 в переменную out18. Выведите эту переменную в консоль. Присвойте out18 значение 5 (out18 = 5). Выведите переменную в консоль. Изучите вывод.
-let out18 = document.querySelector("div.out-18");
-console.log(out18);
+let out18 = document.querySelectorAll("div");
+console.log(out18.length);
 out18 = 5;
 console.log(out18);
 
