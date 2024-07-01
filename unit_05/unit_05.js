@@ -3,8 +3,11 @@
 //     1_2_3_4_5_6_7_8_9_10_11_12_13_14_15_16_
 // Разделитель - нижнее подчеркивание. Задача решается с помощью цикла.
 
-function t1() {}
-
+function t1() {
+    for(let i = 1; i <= 16; i++){
+        document.querySelector(".out-1").textContent += i + "_";
+    }
+}
 document.querySelector(".b-1").onclick = t1;
 
 //  Task 2
@@ -12,7 +15,11 @@ document.querySelector(".b-1").onclick = t1;
 // 12_14_16_18_20_22_24_26_28_30_32_34_36_38_
 //Разделитель - нижнее подчеркивание. Задача решается с помощью цикла.
 
-function t2() {}
+function t2() {
+    for(let i = 12; i <= 38; i += 2){
+        document.querySelector(".out-2").textContent += i + "_";
+    }
+}
 
 document.querySelector(".b-2").onclick = t2;
 
@@ -21,8 +28,11 @@ document.querySelector(".b-2").onclick = t2;
 //  25_24_23_22_21_20_19_18_17_16_15_14_13_12_11_10_9_8_7_
 // Разделитель - нижнее подчеркивание. Задача решается с помощью цикла.
 
-function t3() {}
-
+function t3() {
+    for(let i = 25; i >= 7; i += -1){
+        document.querySelector(".out-3").textContent += i + "_";
+    }
+}
 document.querySelector(".b-3").onclick = t3;
 
 //  Task 4
@@ -30,7 +40,11 @@ document.querySelector(".b-3").onclick = t3;
 //     77_74_71_68_65_62_59_56_53_50_47_44_41_38_35_
 // от 77 до 35 c шагом 3. Разделитель - знак подчеркивания. Задача решается с помощью цикла.
 
-function t4() {}
+function t4() {
+    for(let i = 77; i >= 35; i += -3){
+        document.querySelector(".out-4").textContent += i + "_";
+    }
+}
 
 document.querySelector(".b-4").onclick = t4;
 
@@ -39,7 +53,16 @@ document.querySelector(".b-4").onclick = t4;
 // 1_*2_**3_*4_**5_*6_**7_*8_**9_*10_**11_*12_**13_*14_**15_*16_**17_*
 // от 1 до 17 c шагом 1. Разделитель - знак подчеркивания и звездочка (если число нечетное, и две звездочки если четное). Задача решается с помощью цикла.
 
-function t5() {}
+function t5() {
+    for(let i = 1; i <= 17; i++){
+        if(i%2 == 0){
+            document.querySelector(".out-5").textContent += i + "_" + "**";
+        }
+        else{
+            document.querySelector(".out-5").textContent += i + "_" + "*";
+        }
+    }
+}
 
 document.querySelector(".b-5").onclick = t5;
 
@@ -53,8 +76,16 @@ document.querySelector(".b-5").onclick = t5;
 //Задача решается с помощью цикла. В каждой итерации цикл выводит 6 звездочек. Перенос строки - br. Количество строк (итераций, повторений) цикла вводит пользователь в i-6.
 //
 
-function t6() {}
-
+function t6() {
+    const row = document.querySelector(".i-6").value;
+    document.querySelector(".out-6").innerHTML = ""; 
+    for(let i = 1; i <= row; i++){
+        for(let i = 1; i <= 6; i++){
+            document.querySelector(".out-6").innerHTML +="*";
+        }
+        document.querySelector(".out-6").innerHTML +="<br>";
+    }
+}
 document.querySelector(".b-6").onclick = t6;
 
 //  Task 7
@@ -64,8 +95,13 @@ document.querySelector(".b-6").onclick = t6;
 // 4_3_2_1_0_
 // Задача решается с помощью цикла.
 
-function t7() {}
-
+function t7() {
+    document.querySelector(".out-7").textContent = ""; 
+    nstps = +document.querySelector(".i-7").value;
+    for(let i = nstps; i >= 0; i += -1){
+        document.querySelector(".out-7").textContent += i + "_";
+    }
+}
 document.querySelector(".b-7").onclick = t7;
 
 //  Task 8
@@ -76,7 +112,14 @@ document.querySelector(".b-7").onclick = t7;
 //  4_5_6_7_8_
 // Задача решается с помощью цикла.
 
-function t8() {}
+function t8() {
+    document.querySelector(".out-8").textContent = ""; 
+    start_stps = +document.querySelector(".i-81").value;
+    end_stps = +document.querySelector(".i-82").value;
+    for(let i = start_stps; i <= end_stps; i++){
+        document.querySelector(".out-8").textContent += i + "_";
+    }
+}
 
 document.querySelector(".b-8").onclick = t8;
 
@@ -90,53 +133,95 @@ document.querySelector(".b-8").onclick = t8;
 // Задача решается с помощью цикла. Подсказка - вначале делаем проверку, а потом запускаем цикл.
 // цикл - один
 
-function t9() {}
-
+function t9() {
+    document.querySelector(".out-9").textContent = ""; 
+    start_stps = +document.querySelector(".i-91").value;
+    end_stps = +document.querySelector(".i-92").value;
+    if(start_stps < end_stps){
+        for(let i = start_stps; i <= end_stps; i++){
+            document.querySelector(".out-9").textContent += i + "_";
+        }
+    }
+    else{
+        for(let i = end_stps; i <= start_stps; i++){
+            document.querySelector(".out-9").textContent += i + "_";
+        }
+    }
+    
+}
 document.querySelector(".b-9").onclick = t9;
 
 //  Task 10
 // Кнопка .b-10 запускает функцию t10. Функция должна выводить в .out-10 четные годы от 1950 до 1970 включительно.
 // Разделитель - знак подчеркивания. Задача решается через цикл, а четность - через шаг (равный 2).
 
-function t10() {}
-
+function t10() {
+    document.querySelector(".out-10").textContent = ""; 
+    for(let i = 1950; i <= 1970; i += 2){
+        document.querySelector(".out-10").textContent += i + "_";
+    }
+}
 document.querySelector(".b-10").onclick = t10;
 
 //  Task 11
 // Кнопка .b-11 запускает функцию t11.  Функция должна:
 //     получить все div.div-11 в переменную divs11
-// перебрать их с помощью цикла. Обращение к div выглядит так divs[i].innerHTML
-// вывести в .out-11 содержимое каждого блока. Разделитель - знак подчеркивания.
+//     перебрать их с помощью цикла. Обращение к div выглядит так divs[i].innerHTML
+//     вывести в .out-11 содержимое каждого блока. Разделитель - знак подчеркивания.
 //     В результате должно получиться так:
 //     one_3_4_two_
 
-function t11() {}
+function t11() {
+    document.querySelector(".out-11").textContent = ""; 
+    const divs11 = document.querySelectorAll(".div-11");
+    console.log(divs11)
+    for(let i = 0; i < divs11.length; i++){
+        document.querySelector(".out-11").innerHTML += divs11[i].innerHTML + "_";
+    }    
+}
 
 document.querySelector(".b-11").onclick = t11;
 
 //  Task 12
 // Кнопка .b-12 запускает функцию t12.  Функция должна:
-//     получить все div.div-12
+// получить все div.div-12
 // перебрать их с помощью цикла. Обращение к div выглядит так elem[i]
 // применить к каждому elem[i].style.background = ‘orange’
 
-function t12() {}
+function t12() {
+    const elem = document.querySelectorAll(".div-12");
+    for(let i = 0; i < elem.length; i++){
+        elem[i].style.background = 'orange';
+    }    
+}
 document.querySelector(".b-12").onclick = t12;
 
-//  Task 13
+// Task 13
 // С помощью цикла присвойте всем input .i-13 value равное 1 для первого, 2 для второго и 3 для третьего.
 
-function t13() {}
-
+function t13() {
+    const elem_i = document.querySelectorAll(".i-13");
+    for(let i = 0; i < elem_i.length; i++){
+        elem_i[i].value = i+1;
+    }    
+}
 document.querySelector(".b-13").onclick = t13;
 
 //  Task 14
-// Кнопка .b-14 запускает функцию t14  Функция должна:
-//     получить все input.i-14
+// Кнопка .b-14 запускает функцию t14 Функция должна:
+// получить все input.i-14
 // перебрать их с помощью цикла. Обращение к элементу выглядит так elem[i]
 // вывести в .out-14 value выбранного. Проверить выбран ли элемент можно с помощью elem[i].checked.
 
-function t14() {}
+function t14() {
+    const elem = document.querySelectorAll(".i-14");
+    for(let i = 0; i < elem.length; i++){
+        if(elem[i].checked == true){
+            document.querySelector(".out-14").textContent = elem[i].value;
+        }
+    }   
+
+}
 
 document.querySelector(".b-14").onclick = t14;
 
@@ -145,6 +230,11 @@ document.querySelector(".b-14").onclick = t14;
 // 10_0_9_1_8_2_7_3_6_4_5_5_4_6_3_7_2_8_1_9_0_10_
 // Подсказка (10 - i) + '_' + i + '_'
 
-function t15() {}
+function t15() {
+    document.querySelector(".out-15").textContent = ""; 
+    for(let i = 0; i <= 10; i++){
+        document.querySelector(".out-15").textContent += (10 - i) + '_' + i + '_'; 
+    }
+}
 
 document.querySelector(".b-15").onclick = t15;
